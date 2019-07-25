@@ -16,8 +16,8 @@ Retrieve the history of Ambari alerts for a specific type and requirements .
 5. cat `Results.csv` to view the desired results .
 
 # Example  
-Fetch (datanode_process,hive_server_process) history of last 7 Days :-
-Run the Fetch_ServiceDown_History.sql with `alert_definition_id in 42,151 )
+Fetch (datanode_process,hive_server_process) history of last 7 Days :-  
+Run the Fetch_ServiceDown_History.sql with `alert_definition_id in 42,151`  
 
 ```
 root@ambari:~# cat Results.csv
