@@ -9,7 +9,9 @@ Retrieve the history of Ambari alerts for a specific type and requirements .
       `a) psql ambari ambari [default pw is bigdata] ( Run it from ambari-server )`  
       `b) ambari=> select definition_id,definition_name,component_name from alert_definition ;`  
 
-# 1. Retrieve components down history and duration in last n Days 
+## 1. Retrieve components down history and duration in last n Days
+
+
 1. Login to Ambari server .
 2. Copy ServiceDown_History.sql on ambari server .
 3. Open the sql and edit the `AND alert_definition_id in` from the Pre-requisites steps .
@@ -17,7 +19,9 @@ Retrieve the history of Ambari alerts for a specific type and requirements .
    `su - postgres -c "psql  -d ambari  -f <pathofsql>/ServiceDown_History.sql"` > Results.csv
 5. cat `Results.csv` to view the desired results .
 
-# 2. How many times hadoop components went down in last n Days .
+## 2. How many times hadoop components went down in last n Days .
+
+
 1. Login to Ambari server .
 2. Copy ServiceDown_count.sql on ambari server .
 3. Open the sql and edit the `AND alert_definition_id in` from the Pre-requisites steps .
