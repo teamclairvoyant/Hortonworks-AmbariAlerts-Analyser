@@ -1,7 +1,9 @@
 # AmbariAlerts-Analyser
 Retrieve the history of Ambari alerts for a specific type and requirements .
 
-# Pre-requisites 
+## Pre-requisites  
+
+
 1. Ambari alerts should be configured for the needed services .
 2. Collect the definition_id of all the required alerts from postgres ambari database , by quering alert_definition table :-
       `a) psql ambari ambari [default pw is bigdata] ( Run it from ambari-server )`  
@@ -23,7 +25,9 @@ Retrieve the history of Ambari alerts for a specific type and requirements .
    `su - postgres -c "psql  -d ambari  -f <pathofsql>/ServiceDown_count.sql"` > Results.csv
 5. cat `Results.csv` to view the desired results .
 
-# Examples  
+## Examples 
+
+
 **1. Fetch (datanode_process,hive_server_process) history of last 7 Days :-**  
 Run the ServiceDown_History.sql with `alert_definition_id in 42,151`  
 
@@ -47,7 +51,9 @@ component_name  |         service_name          | count
  DATANODE       |       HDFS                    | 3     
  HIVE_SERVER    |       hive                    | 1
 ```
-**Note :-**  
+## Note 
+
+
 1. These Queries are tested on Apache Ambari v2.6.2 , running on PostgreSQL 9.3.22 .
 
 
