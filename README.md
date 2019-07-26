@@ -15,7 +15,7 @@ Retrieve the history of Ambari alerts for a specific type and requirements .
    `su - postgres -c "psql  -d ambari  -f <pathofsql>/ServiceDown_History.sql"` > Results.csv
 5. cat `Results.csv` to view the desired results .
 
-# 2. How many times components died in last n Days .
+# 2. How many times hadoop components went down in last n Days .
 1. Login to Ambari server .
 2. Copy ServiceDown_count.sql on ambari server .
 3. Open the sql and edit the `AND alert_definition_id in` from the Pre-requisites steps .
@@ -23,8 +23,8 @@ Retrieve the history of Ambari alerts for a specific type and requirements .
    `su - postgres -c "psql  -d ambari  -f <pathofsql>/ServiceDown_count.sql"` > Results.csv
 5. cat `Results.csv` to view the desired results .
 
-# Example  
-Fetch (datanode_process,hive_server_process) history of last 7 Days :-  
+# Examples  
+**1. Fetch (datanode_process,hive_server_process) history of last 7 Days :-**  
 Run the ServiceDown_History.sql with `alert_definition_id in 42,151`  
 
 ```
@@ -37,7 +37,18 @@ component_name  |         host_name          |  critical_time        |       Ok_
  HIVE_SERVER    | server2.org               | 2019-06-25 05:16:32+00 | 2019-06-25 05:17:30+00 | 00:00:58
 ```
 
+**2. Fetch how many times (datanode_process,hive_server_process) went down in last 7 Days :-**  
+Run the ServiceDown_count.sql with `alert_definition_id in 42,151`  
 
+```
+root@ambari:~# cat Results.csv
+component_name  |         service_name          | count  
+----------------+---------------------------+----------  
+ DATANODE       |       HDFS                    | 3     
+ HIVE_SERVER    |       hive                    | 1
+```
+**Note :-**  
+1. These Queries are tested on Apache Ambari v2.6.2 , running on PostgreSQL 9.3.22 .
 
 
 
