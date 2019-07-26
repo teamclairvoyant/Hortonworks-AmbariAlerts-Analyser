@@ -1,4 +1,4 @@
-# Hortonworks-Analyze-AmbariAlerts
+# AmbariAlerts-Analyser
 Retrieve the history of Ambari alerts for a specific type and requirements .
 
 # Pre-requisites 
