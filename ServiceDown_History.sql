@@ -1,3 +1,4 @@
+--test comment
 SELECT q.component_name,
        q.host_name,
        q.prev_update_at downtime_start_time,
